@@ -1,1 +1,35 @@
+json = <<'JSON'
+{
+  "id": "01F4GNAV5ZR6FJQ5SFQC7WDSY3",
+  "author": {
+    "id": "01F4GNBXW1AM2KWW52PVT3ZY9X",
+    "name": "kachick"
+  },
+  "title": "My awesome blog post",
+  "comments": [
+    {
+      "id": "01F4GNCNC3CH0BCRZBPPDEKBKS",
+      "commenter": {
+        "id": "01F4GNBXW1AM2KWW52PVT3ZY9X",
+        "name": "kachick"
+      }
+    },
+    {
+      "id": "01F4GNCXAMXQ1SGBH5XCR6ZH0M",
+      "commenter": {
+        "id": "01F4GND4RYYSKNAADHQ9BNXAWJ",
+        "name": "pankona"
+      }
+    }
+  ]
+}
+JSON
 
+ULID.scan(json).to_a
+#=>
+# [ULID(2021-04-30 05:51:57.119 UTC: 01F4GNAV5ZR6FJQ5SFQC7WDSY3),
+#  ULID(2021-04-30 05:52:32.641 UTC: 01F4GNBXW1AM2KWW52PVT3ZY9X),
+#  ULID(2021-04-30 05:52:56.707 UTC: 01F4GNCNC3CH0BCRZBPPDEKBKS),
+#  ULID(2021-04-30 05:52:32.641 UTC: 01F4GNBXW1AM2KWW52PVT3ZY9X),
+#  ULID(2021-04-30 05:53:04.852 UTC: 01F4GNCXAMXQ1SGBH5XCR6ZH0M),
+#  ULID(2021-04-30 05:53:12.478 UTC: 01F4GND4RYYSKNAADHQ9BNXAWJ)]
